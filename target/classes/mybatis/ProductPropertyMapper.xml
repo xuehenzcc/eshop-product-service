@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zcc.user.mapper.ProductPropertyMapper">
+ 
+ <select id="findById" resultType="com.zcc.user.model.ProductProperty">
+ 	select * 
+ 	from t_productproperty
+ 	where id=#{id}
+ </select>
+ 
+ <select id="findByProductId" resultType="com.zcc.user.model.ProductProperty">
+ 	select * 
+ 	from t_productproperty
+ 	where productId=#{productId}
+ </select>
+ 
+ <insert id="add" useGeneratedKeys="true" keyProperty="id">
+ 	INSERT INTO t_productproperty (NAME,value,productId) VALUES (#{name},#{value},#{productId})
+ </insert>
+ 
+ <update id="update">
+ 	UPDATE t_productproperty SET NAME=#{name},value=#{value} 
+ 	WHERE id=#{id}
+ </update>
+ 
+ <delete id="delete">
+ 	DELETE FROM t_productproperty 
+ 	WHERE id=#{id}
+ </delete>
+ 
+</mapper>

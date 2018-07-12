@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zcc.user.mapper.ProductMapper">
+ 
+ <select id="findById" resultType="com.zcc.user.model.Product">
+ 	select * 
+ 	from t_product
+ 	where id=#{id}
+ </select>
+ 
+ <insert id="add" useGeneratedKeys="true" keyProperty="id">
+ 	INSERT INTO t_product (NAME,categoryId,brandId) VALUES (#{name},#{categoryId},#{brandId})
+ </insert>
+ 
+ <update id="update">
+ 	UPDATE t_product SET NAME=#{name},categoryId=#{categoryId},brandId=${brandId}
+ 	WHERE id=#{id}
+ </update>
+ 
+ <delete id="delete">
+ 	DELETE FROM t_product 
+ 	WHERE id=#{id}
+ </delete>
+ 
+</mapper>
